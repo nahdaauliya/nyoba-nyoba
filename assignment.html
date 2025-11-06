@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengenalan Bootstrap</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+
+    <script src="https://ajx.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper/min/js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+        .scroll-img img{
+            margin-right: 20px;
+            border-radius: 15px;
+        }
+        
+        .scroll-img{
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm bg-light navbar-light px-4">
+        <div class="container-fluid">
+             <a class="ms-auto" href="#">
+                    <img src="logo22.png" alt="logo" style="height: 50px;">
+            </a>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Buy</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Series</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid" 
+        style="
+                background-image: linear-gradient(rgba(0,0,0,0.80), rgba(0,0,0,0.80)), url('gmm.jpg'); 
+                background-size: cover; 
+                background-position: center; 
+                padding: 80px 20px">
+        <div class="text-center">
+            <h1 style="font-size: 50px;">
+                <span style="color:white">GMM</span><span style="color:#0054A6">TV</span>
+                <span style="color:white">MASCOT</span>
+            </h1>
+            <p style="font-style: italic; color:white"> The official mascot of GMMTV </p>
+        </div>
+    </div>
+    <br>
+    <br>
+     <div class="container">
+        <h2>GMMTV MASCOT</h2>
+        <div class="scroll-img d-flex overflow-auto p-2" style="white-space: nowrap;">
+            <img src="neona.jpg" class="rounded" alt="gambar round" style="width: 200px; height: auto; border-radius:15px">
+            <img src="polcasan.jpg" class="rounded" alt="gambar round2" style="width: 200px; height: auto;">
+            <img src="smyle.jpg" class="rounded" alt="gambar round3" style="width: 200px; height: auto;">
+            <img src="guinzly.jpg" class="rounded" alt="gambar round4" style="width: 200px; height: auto;">
+        </div>
+    </div>
+    <script>
+        const container = document.querySelector('.scroll-img');
+        container.innerHTML += container.innerHTML;
+        let scrollAmount = 0;
+
+        function autoscroll(){
+            scrollAmount += 1;
+            container.scrollTo({
+                left: scrollAmount,
+                behavior: "smooth"
+            });
+
+            if(scrollAmount>= container.scrollWidth - container.clientWidth){
+                scrollAmount = 0;
+            }
+        }
+
+        setInterval(autoscroll, 50)
+    </script>
+</body>
+</html>
